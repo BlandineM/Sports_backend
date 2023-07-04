@@ -1,82 +1,100 @@
 package com.perso.sports.entity;
 
-import java.time.Instant;
-import java.util.Date;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
+import java.time.Instant;
+
+@Entity
 public class Sessions {
-    private Long idMovements;
-    private Long idSessions;
-    private Long idUsers;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "id_movements")
+    private Integer idMovements;
+    @Column(name = "id_users")
+    private Integer idUsers;
+    @Column(name = "date")
     private Instant date;
+    @Column(name = "repetitions")
     private int repetitions;
+
+    @Column(name = "weight")
     private int weight;
+
+    @Column(name = "name")
     private String name;
 
     public Sessions (){}
 
-    public Sessions(Long idMovements, Long idSessions, Long idUsers, Instant date, int repetitions, int weight, String name){
+    public Sessions(Integer id, Integer idMovements, Integer idUsers, Instant date, int repetitions, int weight, String name) {
+        this.id = id;
         this.idMovements = idMovements;
-        this.idSessions = idSessions;
         this.idUsers = idUsers;
-        this.name = name;
-        this.weight = weight;
         this.date = date;
         this.repetitions = repetitions;
-    }
-
-    public void setIdMovements(Long idMovements) {
-        this.idMovements = idMovements;
-    }
-
-    public void setName(String name) {
+        this.weight = weight;
         this.name = name;
     }
 
-    public void setDate(Instant date) {
-        this.date = date;
+    public Integer getId() {
+        return id;
     }
 
-    public String getName() {
-        return name;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getIdMovements() {
+        return idMovements;
+    }
+
+    public void setIdMovements(Integer idMovements) {
+        this.idMovements = idMovements;
+    }
+
+    public Integer getIdUsers() {
+        return idUsers;
+    }
+
+    public void setIdUsers(Integer idUsers) {
+        this.idUsers = idUsers;
     }
 
     public Instant getDate() {
         return date;
     }
 
+    public void setDate(Instant date) {
+        this.date = date;
+    }
+
     public int getRepetitions() {
         return repetitions;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public Long getIdSessions() {
-        return idSessions;
-    }
-
-    public Long getIdMovements() {
-        return idMovements;
-    }
-
-    public void setIdSessions(Long idSessions) {
-        this.idSessions = idSessions;
-    }
-
-    public Long getIdUsers() {
-        return idUsers;
-    }
-
-    public void setIdUsers(Long idUsers) {
-        this.idUsers = idUsers;
     }
 
     public void setRepetitions(int repetitions) {
         this.repetitions = repetitions;
     }
 
+    public int getWeight() {
+        return weight;
+    }
+
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
