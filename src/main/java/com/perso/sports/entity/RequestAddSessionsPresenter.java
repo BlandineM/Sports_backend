@@ -3,19 +3,19 @@ package com.perso.sports.entity;
 import java.time.Instant;
 
 public class RequestAddSessionsPresenter {
-    private Long idMovements;
-    private Long idUsers;
+    private Integer idMovements;
+    private Integer idUsers;
     private Instant date;
     private int repetitions;
     private int weight;
     private String name;
 
 
-    public Long getIdMovements() {
+    public Integer getIdMovements() {
         return idMovements;
     }
 
-    public Long getIdUsers() {
+    public Integer getIdUsers() {
         return idUsers;
     }
 

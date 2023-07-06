@@ -20,14 +20,14 @@ public class SessionsController {
     public List<Sessions> index(){return sessionRepository.findAll();}
 
     @GetMapping("/sessions/{id}")
-    public Sessions findById(@PathVariable Long id){
-        return sessionRepository.findById(id);
+    public Sessions findById(@PathVariable Integer id){
+        return sessionRepository.findById(id).orElse(null);
     }
 
     @PostMapping("/sessions")
     public Sessions create(@RequestBody RequestAddSessionsPresenter requestAddSessionsPresenter){
-        Long idMovements = requestAddSessionsPresenter.getIdMovements();
-        Long idUsers = requestAddSessionsPresenter.getIdUsers();
+        Integer idMovements = requestAddSessionsPresenter.getIdMovements();
+        Integer idUsers = requestAddSessionsPresenter.getIdUsers();
         Instant date = requestAddSessionsPresenter.getDate();
         int repetitions = requestAddSessionsPresenter.getRepetitions();
         int weight = requestAddSessionsPresenter.getWeight();
@@ -38,19 +38,20 @@ public class SessionsController {
 
     @PutMapping("/sessions/{id}")
     public Sessions update(@PathVariable Long id, @RequestBody RequestUpdateSessionsPresenter requestUpdateSessionsPresenter){
-        Long idMovements = requestUpdateSessionsPresenter.getIdMovements();
-        Long idUsers = requestUpdateSessionsPresenter.getIdUsers();
+        Integer idMovements = requestUpdateSessionsPresenter.getIdMovements();
+        Integer idUsers = requestUpdateSessionsPresenter.getIdUsers();
         Instant date = requestUpdateSessionsPresenter.getDate();
         int repetitions = requestUpdateSessionsPresenter.getRepetitions();
         int weight = requestUpdateSessionsPresenter.getWeight();
         String name = requestUpdateSessionsPresenter.getName();
-        Sessions requestSessions = new Sessions(idMovements, id, idUsers, date, repetitions, weight, name);
-        return sessionRepository.update(requestSessions);
+        Sessions requestSessions = new Sessions(idMovements, idMovements, idUsers, date, repetitions, weight, name);
+        return sessionRepository.save(requestSessions);
 
     }
 
     @DeleteMapping("sessions/{id}")
-    public boolean delete(@PathVariable Long id){
-        return sessionRepository.deleteById(id);
+    public boolean delete(@PathVariable Integer id){
+         sessionRepository.deleteById(id);
+         return true;
     }
 }
