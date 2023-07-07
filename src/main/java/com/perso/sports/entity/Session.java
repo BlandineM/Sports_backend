@@ -9,7 +9,7 @@ import java.time.Instant;
 import java.util.List;
 
 @Entity
-public class Sessions {
+public class Session {
 
     @Id
     @GeneratedValue
@@ -25,10 +25,10 @@ public class Sessions {
     @Column(name = "name")
     private String name;
 
-    public Sessions (){}
+    public Session(){}
 
 
-    public Sessions(Integer id, List<Exercise> exercises, Integer idUsers, Instant date, String name) {
+    public Session(Integer id, List<Exercise> exercises, Integer idUsers, Instant date, String name) {
         this.id = id;
         this.exercises = exercises;
         this.idUsers = idUsers;

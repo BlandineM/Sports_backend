@@ -1,31 +1,31 @@
 package com.perso.sports.controller;
 
 import com.perso.sports.entity.Movement;
-import com.perso.sports.entity.RequestAddMovementsPresenter;
-import com.perso.sports.repository.MovementsRepository;
+import com.perso.sports.entity.RequestAddMovementPresenter;
+import com.perso.sports.repository.MovementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class MovementsController {
+public class MovementController {
     @Autowired
-    MovementsRepository movementsRepository;
+    MovementRepository movementsRepository;
 
-    @GetMapping("/movements")
+    @GetMapping("/movement")
     public List<Movement> index(){
         return movementsRepository.findAll();
     }
 
-    @DeleteMapping("movements/{id}")
+    @DeleteMapping("movement/{id}")
     public boolean delete(@PathVariable Integer id){
         movementsRepository.deleteById(id);
         return true;
     }
 
-    @PostMapping("/movements")
-    public Movement create(@RequestBody RequestAddMovementsPresenter requestAddMovementsPresenter){
+    @PostMapping("/movement")
+    public Movement create(@RequestBody RequestAddMovementPresenter requestAddMovementsPresenter){
         String name = requestAddMovementsPresenter.getName();
         String shortName = requestAddMovementsPresenter.getShortName();
         String description = requestAddMovementsPresenter.getDescription();

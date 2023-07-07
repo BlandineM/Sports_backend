@@ -5,7 +5,7 @@ import com.perso.sports.entity.presenter.ExercisePresenter;
 import java.time.Instant;
 import java.util.List;
 
-public class RequestUpdateSessionsPresenter {
+public class RequestUpdateSessionPresenter {
     private Integer idSessions;
     private Integer idUsers;
     private Instant date;
