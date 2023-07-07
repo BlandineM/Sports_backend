@@ -1,26 +1,18 @@
-package com.perso.sports.entity;
+package com.perso.sports.entity.presenter;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+public class MovementPresenter {
 
-@Entity
-public class Movements {
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
     private Integer id;
-    @Column(name = "name")
+
     private String name;
-    @Column(name = "short_name")
+
     private String shortName;
-    @Column(name = "description")
+
     private String description;
 
-    public Movements(){}
+    public MovementPresenter(){}
 
-    public Movements(Integer id, String name, String shortName, String description) {
+    public MovementPresenter(Integer id, String name, String shortName, String description) {
         this.id = id;
         this.name = name;
         this.shortName = shortName;
