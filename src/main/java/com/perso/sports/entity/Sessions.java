@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 public class Sessions {
@@ -14,31 +15,24 @@ public class Sessions {
     @GeneratedValue
     @Column(name = "id")
     private Integer id;
-
-    @Column(name = "id_movements")
-    private Integer idMovements;
+    @Column(name = "exercises")
+    private List<Exercise> exercises;
     @Column(name = "id_users")
     private Integer idUsers;
     @Column(name = "date")
     private Instant date;
-    @Column(name = "repetitions")
-    private int repetitions;
-
-    @Column(name = "weight")
-    private int weight;
 
     @Column(name = "name")
     private String name;
 
     public Sessions (){}
 
-    public Sessions(Integer id, Integer idMovements, Integer idUsers, Instant date, int repetitions, int weight, String name) {
+
+    public Sessions(Integer id, List<Exercise> exercises, Integer idUsers, Instant date, String name) {
         this.id = id;
-        this.idMovements = idMovements;
+        this.exercises = exercises;
         this.idUsers = idUsers;
         this.date = date;
-        this.repetitions = repetitions;
-        this.weight = weight;
         this.name = name;
     }
 
@@ -50,12 +44,12 @@ public class Sessions {
         this.id = id;
     }
 
-    public Integer getIdMovements() {
-        return idMovements;
+    public List<Exercise> getExercises() {
+        return exercises;
     }
 
-    public void setIdMovements(Integer idMovements) {
-        this.idMovements = idMovements;
+    public void setExercises(List<Exercise> exercises) {
+        this.exercises = exercises;
     }
 
     public Integer getIdUsers() {
@@ -72,22 +66,6 @@ public class Sessions {
 
     public void setDate(Instant date) {
         this.date = date;
-    }
-
-    public int getRepetitions() {
-        return repetitions;
-    }
-
-    public void setRepetitions(int repetitions) {
-        this.repetitions = repetitions;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 
     public String getName() {

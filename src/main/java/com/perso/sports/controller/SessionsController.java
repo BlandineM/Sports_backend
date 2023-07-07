@@ -1,8 +1,7 @@
 package com.perso.sports.controller;
 
-import com.perso.sports.entity.RequestAddSessionsPresenter;
-import com.perso.sports.entity.RequestUpdateSessionsPresenter;
-import com.perso.sports.entity.Sessions;
+import com.perso.sports.entity.*;
+import com.perso.sports.entity.presenter.ExercisePresenter;
 import com.perso.sports.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,25 +25,23 @@ public class SessionsController {
 
     @PostMapping("/sessions")
     public Sessions create(@RequestBody RequestAddSessionsPresenter requestAddSessionsPresenter){
-        Integer idMovements = requestAddSessionsPresenter.getIdMovements();
         Integer idUsers = requestAddSessionsPresenter.getIdUsers();
         Instant date = requestAddSessionsPresenter.getDate();
-        int repetitions = requestAddSessionsPresenter.getRepetitions();
-        int weight = requestAddSessionsPresenter.getWeight();
         String name = requestAddSessionsPresenter.getName();
-        Sessions requestSessions = new Sessions(idMovements, null, idUsers, date, repetitions, weight, name);
+        List<ExercisePresenter> exercisePresenters = requestAddSessionsPresenter.getExercises();
+        List <Exercise> exercises = Exercise.fromPresenter(exercisePresenters);
+        Sessions requestSessions = new Sessions( null, exercises, idUsers, date,  name);
         return sessionRepository.save(requestSessions);
     }
 
     @PutMapping("/sessions/{id}")
-    public Sessions update(@PathVariable Long id, @RequestBody RequestUpdateSessionsPresenter requestUpdateSessionsPresenter){
-        Integer idMovements = requestUpdateSessionsPresenter.getIdMovements();
+    public Sessions update(@PathVariable Integer id, @RequestBody RequestUpdateSessionsPresenter requestUpdateSessionsPresenter){
         Integer idUsers = requestUpdateSessionsPresenter.getIdUsers();
         Instant date = requestUpdateSessionsPresenter.getDate();
-        int repetitions = requestUpdateSessionsPresenter.getRepetitions();
-        int weight = requestUpdateSessionsPresenter.getWeight();
         String name = requestUpdateSessionsPresenter.getName();
-        Sessions requestSessions = new Sessions(idMovements, idMovements, idUsers, date, repetitions, weight, name);
+        List<ExercisePresenter> exercisePresenters = requestUpdateSessionsPresenter.getExercises();
+        List <Exercise> exercises = Exercise.fromPresenter(exercisePresenters);
+        Sessions requestSessions = new Sessions(id, exercises, idUsers, date, name);
         return sessionRepository.save(requestSessions);
 
     }
