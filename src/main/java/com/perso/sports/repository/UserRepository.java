@@ -1,7 +1,7 @@
 package com.perso.sports.repository;
 
-import com.perso.sports.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.perso.sports.entity.UserEntity;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends MongoRepository<UserEntity, Integer> {
 }

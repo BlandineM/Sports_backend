@@ -1,6 +1,6 @@
 package com.perso.sports.controller;
 
-import com.perso.sports.entity.Movement;
+import com.perso.sports.entity.MovementEntity;
 import com.perso.sports.entity.RequestAddMovementPresenter;
 import com.perso.sports.repository.MovementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class MovementController {
     MovementRepository movementsRepository;
 
     @GetMapping("/movement")
-    public List<Movement> index(){
+    public List<MovementEntity> index(){
         return movementsRepository.findAll();
     }
 
@@ -25,11 +25,11 @@ public class MovementController {
     }
 
     @PostMapping("/movement")
-    public Movement create(@RequestBody RequestAddMovementPresenter requestAddMovementsPresenter){
+    public MovementEntity create(@RequestBody RequestAddMovementPresenter requestAddMovementsPresenter){
         String name = requestAddMovementsPresenter.getName();
         String shortName = requestAddMovementsPresenter.getShortName();
         String description = requestAddMovementsPresenter.getDescription();
-        Movement requestMovements = new Movement(null, name, shortName, description);
+        MovementEntity requestMovements = new MovementEntity(null, name, shortName, description);
         return movementsRepository.save(requestMovements);
     }
 }

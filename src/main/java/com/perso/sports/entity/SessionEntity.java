@@ -1,34 +1,26 @@
 package com.perso.sports.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
-@Entity
-public class Session {
+@Document(collection = "session")
+public class SessionEntity {
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Integer id;
-    @Column(name = "exercises")
-    private List<Exercise> exercises;
-    @Column(name = "id_users")
+    private UUID id;
+    private List<ExerciseEntity> exercises;
     private Integer idUsers;
-    @Column(name = "date")
     private Instant date;
-
-    @Column(name = "name")
     private String name;
 
-    public Session(){}
+    public SessionEntity(){}
 
 
-    public Session(Integer id, List<Exercise> exercises, Integer idUsers, Instant date, String name) {
+    public SessionEntity(UUID id, List<ExerciseEntity> exercises, Integer idUsers, Instant date, String name) {
         this.id = id;
         this.exercises = exercises;
         this.idUsers = idUsers;
@@ -36,19 +28,19 @@ public class Session {
         this.name = name;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public List<Exercise> getExercises() {
+    public List<ExerciseEntity> getExercises() {
         return exercises;
     }
 
-    public void setExercises(List<Exercise> exercises) {
+    public void setExercises(List<ExerciseEntity> exercises) {
         this.exercises = exercises;
     }
 

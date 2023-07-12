@@ -1,35 +1,34 @@
 package com.perso.sports.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-public class User {
+import java.util.UUID;
+
+@Document(collection = "user")
+public class UserEntity {
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
-    private Integer id;
+    private UUID id;
 
-    @Column(name = "name")
     private String name;
 
 
-    public User(){
+    public UserEntity(){
     }
 
-    public User(Integer id, String name) {
+    public UserEntity(UUID id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

@@ -1,37 +1,32 @@
 package com.perso.sports.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-public class Movement {
+import java.util.UUID;
+
+@Document(collection = "movement")
+public class MovementEntity {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Integer id;
-    @Column(name = "name")
+    private UUID id;
     private String name;
-    @Column(name = "short_name")
     private String shortName;
-    @Column(name = "description")
     private String description;
 
-    public Movement(){}
+    public MovementEntity(){}
 
-    public Movement(Integer id, String name, String shortName, String description) {
+    public MovementEntity(UUID id, String name, String shortName, String description) {
         this.id = id;
         this.name = name;
         this.shortName = shortName;
         this.description = description;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
