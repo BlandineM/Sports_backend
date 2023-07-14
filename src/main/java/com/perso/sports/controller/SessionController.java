@@ -20,7 +20,7 @@ public class SessionController {
     public List<SessionEntity> index(){return sessionRepository.findAll();}
 
     @GetMapping("/session/{id}")
-    public SessionEntity findById(@PathVariable Integer id){
+    public SessionEntity findById(@PathVariable UUID id){
         return sessionRepository.findById(id).orElse(null);
     }
 
@@ -48,7 +48,7 @@ public class SessionController {
     }
 
     @DeleteMapping("session/{id}")
-    public boolean delete(@PathVariable Integer id){
+    public boolean delete(@PathVariable UUID id){
          sessionRepository.deleteById(id);
          return true;
     }

@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @DeleteMapping("user/{id}")
-    public boolean delete(@PathVariable Integer id){
+    public boolean delete(@PathVariable UUID id){
         userRepository.deleteById(id);
         return true;
     }

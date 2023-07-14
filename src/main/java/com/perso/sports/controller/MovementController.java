@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class MovementController {
@@ -19,7 +20,7 @@ public class MovementController {
     }
 
     @DeleteMapping("movement/{id}")
-    public boolean delete(@PathVariable Integer id){
+    public boolean delete(@PathVariable UUID id){
         movementsRepository.deleteById(id);
         return true;
     }

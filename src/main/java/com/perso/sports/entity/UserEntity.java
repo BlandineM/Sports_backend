@@ -1,7 +1,6 @@
 package com.perso.sports.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
@@ -10,7 +9,6 @@ import java.util.UUID;
 public class UserEntity {
 
     @Id
-    @GeneratedValue
     private UUID id;
 
     private String name;
@@ -38,5 +36,9 @@ public class UserEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static UserEntity create(String name) {
+        return new UserEntity(UUID.randomUUID(), name);
     }
 }
