@@ -4,10 +4,11 @@ import com.perso.sports.entity.presenter.ExercisePresenter;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 public class RequestAddSessionPresenter {
 
-    private Integer idUsers;
+    private UUID idUsers;
     private Instant date;
     private int repetitions;
     private int weight;
@@ -19,7 +20,7 @@ public class RequestAddSessionPresenter {
         return exercises;
     }
 
-    public Integer getIdUsers() {
+    public UUID getIdUsers() {
         return idUsers;
     }
 

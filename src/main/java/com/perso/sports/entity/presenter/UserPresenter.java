@@ -1,24 +1,26 @@
 package com.perso.sports.entity.presenter;
 
+import java.util.UUID;
+
 public class UserPresenter {
 
-    private Integer id;
+    private UUID id;
     private String name;
 
 
     public UserPresenter(){
     }
 
-    public UserPresenter(Integer id, String name) {
+    public UserPresenter(UUID id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

@@ -4,10 +4,11 @@ import com.perso.sports.entity.presenter.ExercisePresenter;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 public class RequestUpdateSessionPresenter {
-    private Integer idSessions;
-    private Integer idUsers;
+    private UUID idSessions;
+    private UUID idUsers;
     private Instant date;
     private String name;
 
@@ -18,11 +19,11 @@ public class RequestUpdateSessionPresenter {
     public List<ExercisePresenter> getExercises() {
         return exercises;
     }
-    public Integer getIdSessions() {
+    public UUID getIdSessions() {
         return idSessions;
     }
 
-    public Integer getIdUsers() {
+    public UUID getIdUsers() {
         return idUsers;
     }
 

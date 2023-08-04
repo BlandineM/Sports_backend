@@ -13,14 +13,14 @@ public class SessionEntity {
     @Id
     private UUID id;
     private List<ExerciseEntity> exercises;
-    private Integer idUsers;
+    private UUID idUsers;
     private Instant date;
     private String name;
 
     public SessionEntity(){}
 
 
-    public SessionEntity(UUID id, List<ExerciseEntity> exercises, Integer idUsers, Instant date, String name) {
+    public SessionEntity(UUID id, List<ExerciseEntity> exercises, UUID idUsers, Instant date, String name) {
         this.id = id;
         this.exercises = exercises;
         this.idUsers = idUsers;
@@ -44,11 +44,11 @@ public class SessionEntity {
         this.exercises = exercises;
     }
 
-    public Integer getIdUsers() {
+    public UUID getIdUsers() {
         return idUsers;
     }
 
-    public void setIdUsers(Integer idUsers) {
+    public void setIdUsers(UUID idUsers) {
         this.idUsers = idUsers;
     }
 

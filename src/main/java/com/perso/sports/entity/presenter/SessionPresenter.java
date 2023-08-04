@@ -2,12 +2,13 @@ package com.perso.sports.entity.presenter;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 
 public class SessionPresenter {
 
 
-    private Integer id;
+    private UUID id;
     private List<ExercisePresenter> exercises;
     private UserPresenter user;
     private Instant date;
@@ -15,7 +16,7 @@ public class SessionPresenter {
 
     public SessionPresenter(){}
 
-    public SessionPresenter(Integer id, List<ExercisePresenter> exercises, UserPresenter user, Instant date, String name) {
+    public SessionPresenter(UUID id, List<ExercisePresenter> exercises, UserPresenter user, Instant date, String name) {
         this.id = id;
         this.exercises = exercises;
         this.user = user;
@@ -23,11 +24,11 @@ public class SessionPresenter {
         this.name = name;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

@@ -4,6 +4,7 @@ import com.perso.sports.entity.presenter.ExercisePresenter;
 
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class ExerciseEntity {
@@ -12,14 +13,14 @@ public class ExerciseEntity {
 
     private int weight;
 
-    private Integer idMovement;
+    private UUID idMovement;
 
 
     public ExerciseEntity() {
     }
 
 
-    public ExerciseEntity(int repetitions, int weight, Integer idMovement) {
+    public ExerciseEntity(int repetitions, int weight, UUID idMovement) {
         this.repetitions = repetitions;
         this.weight = weight;
         this.idMovement = idMovement;
@@ -41,11 +42,11 @@ public class ExerciseEntity {
         this.weight = weight;
     }
 
-    public Integer getIdMovement() {
+    public UUID getIdMovement() {
         return idMovement;
     }
 
-    public void setIdMovement(Integer idMovement) {
+    public void setIdMovement(UUID idMovement) {
         this.idMovement = idMovement;
     }
 
@@ -58,7 +59,7 @@ public class ExerciseEntity {
     public  static ExerciseEntity fromPresenter(ExercisePresenter exercisePresenter) {
         int repetitions = exercisePresenter.getRepetitions();
         int weight = exercisePresenter.getWeight();
-        Integer idMovements = exercisePresenter.getMovements().getId();
+        UUID idMovements = exercisePresenter.getMovements().getId();
         return  new ExerciseEntity( repetitions, weight, idMovements);
     }
 }

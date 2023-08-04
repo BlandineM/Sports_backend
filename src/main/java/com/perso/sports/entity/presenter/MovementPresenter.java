@@ -1,8 +1,10 @@
 package com.perso.sports.entity.presenter;
 
+import java.util.UUID;
+
 public class MovementPresenter {
 
-    private Integer id;
+    private UUID id;
 
     private String name;
 
@@ -12,18 +14,18 @@ public class MovementPresenter {
 
     public MovementPresenter(){}
 
-    public MovementPresenter(Integer id, String name, String shortName, String description) {
+    public MovementPresenter(UUID id, String name, String shortName, String description) {
         this.id = id;
         this.name = name;
         this.shortName = shortName;
         this.description = description;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

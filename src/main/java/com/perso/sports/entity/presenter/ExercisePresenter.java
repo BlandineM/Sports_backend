@@ -1,8 +1,10 @@
 package com.perso.sports.entity.presenter;
 
+import java.util.UUID;
+
 public class ExercisePresenter {
 
-    private Integer id;
+    private UUID id;
 
     private int repetitions;
 
@@ -13,18 +15,18 @@ public class ExercisePresenter {
 
     public ExercisePresenter(){}
 
-    public ExercisePresenter(Integer id, int repetitions, int weight, MovementPresenter movements) {
+    public ExercisePresenter(UUID id, int repetitions, int weight, MovementPresenter movements) {
         this.id = id;
         this.repetitions = repetitions;
         this.weight = weight;
         this.movements = movements;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

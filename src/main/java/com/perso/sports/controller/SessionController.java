@@ -26,7 +26,7 @@ public class SessionController {
 
     @PostMapping("/session")
     public SessionEntity create(@RequestBody RequestAddSessionPresenter requestAddSessionsPresenter){
-        Integer idUsers = requestAddSessionsPresenter.getIdUsers();
+        UUID idUsers = requestAddSessionsPresenter.getIdUsers();
         Instant date = requestAddSessionsPresenter.getDate();
         String name = requestAddSessionsPresenter.getName();
         List<ExercisePresenter> exercisePresenters = requestAddSessionsPresenter.getExercises();
@@ -37,7 +37,7 @@ public class SessionController {
 
     @PutMapping("/session/{id}")
     public SessionEntity update(@PathVariable UUID id, @RequestBody RequestUpdateSessionPresenter requestUpdateSessionsPresenter){
-        Integer idUsers = requestUpdateSessionsPresenter.getIdUsers();
+        UUID idUsers = requestUpdateSessionsPresenter.getIdUsers();
         Instant date = requestUpdateSessionsPresenter.getDate();
         String name = requestUpdateSessionsPresenter.getName();
         List<ExercisePresenter> exercisePresenters = requestUpdateSessionsPresenter.getExercises();
