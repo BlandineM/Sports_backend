@@ -29,9 +29,8 @@ public class UserController {
 
     @PutMapping("/users/{id}")
     public User update(@PathVariable Integer id, @RequestBody Map<String, String> body){
-        Integer userId = id;
         String name = body.get("name");
-        User requestUser = new User(userId,name);
+        User requestUser = new User(id,name);
         return userRepository.save(requestUser);
     }
 
