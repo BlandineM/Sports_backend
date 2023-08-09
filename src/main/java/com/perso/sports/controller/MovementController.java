@@ -12,16 +12,16 @@ import java.util.UUID;
 @RestController
 public class MovementController {
     @Autowired
-    MovementRepository movementsRepository;
+    MovementRepository movementRepository;
 
     @GetMapping("/movement")
     public List<MovementEntity> index(){
-        return movementsRepository.findAll();
+        return movementRepository.findAll();
     }
 
     @DeleteMapping("movement/{id}")
     public boolean delete(@PathVariable UUID id){
-        movementsRepository.deleteById(id);
+        movementRepository.deleteById(id);
         return true;
     }
 
@@ -30,7 +30,7 @@ public class MovementController {
         String name = requestAddMovementsPresenter.getName();
         String shortName = requestAddMovementsPresenter.getShortName();
         String description = requestAddMovementsPresenter.getDescription();
-        MovementEntity requestMovements = new MovementEntity(null, name, shortName, description);
-        return movementsRepository.save(requestMovements);
+        MovementEntity requestMovement = new MovementEntity(null, name, shortName, description);
+        return movementRepository.save(requestMovement);
     }
 }
