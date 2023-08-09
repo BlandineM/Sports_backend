@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.UUID;
 
 public class RequestUpdateSessionPresenter {
-    private UUID idSessions;
-    private UUID idUsers;
+    private UUID idSession;
+    private UUID idUser;
     private Instant date;
     private String name;
 
@@ -19,12 +19,12 @@ public class RequestUpdateSessionPresenter {
     public List<ExercisePresenter> getExercises() {
         return exercises;
     }
-    public UUID getIdSessions() {
-        return idSessions;
+    public UUID getIdSession() {
+        return idSession;
     }
 
-    public UUID getIdUsers() {
-        return idUsers;
+    public UUID getIdUser() {
+        return idUser;
     }
 
     public Instant getDate() {

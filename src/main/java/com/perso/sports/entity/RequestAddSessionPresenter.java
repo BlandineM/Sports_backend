@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class RequestAddSessionPresenter {
 
-    private UUID idUsers;
+    private UUID idUser;
     private Instant date;
     private int repetitions;
     private int weight;
@@ -20,8 +20,8 @@ public class RequestAddSessionPresenter {
         return exercises;
     }
 
-    public UUID getIdUsers() {
-        return idUsers;
+    public UUID getIdUser() {
+        return idUser;
     }
 
     public Instant getDate() {

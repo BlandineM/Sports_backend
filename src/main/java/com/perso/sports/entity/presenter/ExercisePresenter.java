@@ -12,17 +12,17 @@ public class ExercisePresenter {
 
     private int weight;
 
-    private MovementPresenter movements;
+    private MovementPresenter movement;
 
 
     public ExercisePresenter(){}
 
-    public ExercisePresenter(UUID id, int repetitions, int numberSerie, int weight, MovementPresenter movements) {
+    public ExercisePresenter(UUID id, int repetitions, int numberSerie, int weight, MovementPresenter movement) {
         this.id = id;
         this.repetitions = repetitions;
         this.numberSerie = numberSerie;
         this.weight = weight;
-        this.movements = movements;
+        this.movement = movement;
     }
 
     public int getNumberSerie() {
@@ -58,10 +58,10 @@ public class ExercisePresenter {
     }
 
     public MovementPresenter getMovement() {
-        return movements;
+        return movement;
     }
 
     public void setMovement(MovementPresenter movement) {
-        this.movements = movement;
+        this.movement = movement;
     }
 }

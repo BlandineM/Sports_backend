@@ -2,6 +2,7 @@ package com.perso.sports.controller;
 
 import com.perso.sports.entity.MovementEntity;
 import com.perso.sports.entity.RequestAddMovementPresenter;
+import com.perso.sports.entity.presenter.MovementPresenter;
 import com.perso.sports.repository.MovementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class MovementController {
     @Autowired
     MovementRepository movementRepository;
 
-    @GetMapping("/movement")
+    @GetMapping("/movements")
     public List<MovementEntity> index(){
         return movementRepository.findAll();
     }

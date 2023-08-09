@@ -2,6 +2,7 @@ package com.perso.sports.controller;
 
 import com.perso.sports.entity.*;
 import com.perso.sports.entity.presenter.ExercisePresenter;
+import com.perso.sports.entity.presenter.SessionPresenter;
 import com.perso.sports.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,23 +27,23 @@ public class SessionController {
 
     @PostMapping("/session")
     public SessionEntity create(@RequestBody RequestAddSessionPresenter requestAddSessionPresenter){
-        UUID idUsers = requestAddSessionPresenter.getIdUsers();
+        UUID idUser = requestAddSessionPresenter.getIdUser();
         Instant date = requestAddSessionPresenter.getDate();
         String name = requestAddSessionPresenter.getName();
         List<ExercisePresenter> exercisePresenters = requestAddSessionPresenter.getExercises();
         List <ExerciseEntity> exercises = ExerciseEntity.fromPresenter(exercisePresenters);
-        SessionEntity requestSession = new SessionEntity( null, exercises, idUsers, date,  name);
+        SessionEntity requestSession = new SessionEntity( null, exercises, idUser, date,  name);
         return sessionRepository.save(requestSession);
     }
 
     @PutMapping("/session/{id}")
-    public SessionEntity update(@PathVariable UUID id, @RequestBody RequestUpdateSessionPresenter requestUpdateSessionsPresenter){
-        UUID idUsers = requestUpdateSessionsPresenter.getIdUsers();
-        Instant date = requestUpdateSessionsPresenter.getDate();
-        String name = requestUpdateSessionsPresenter.getName();
-        List<ExercisePresenter> exercisePresenters = requestUpdateSessionsPresenter.getExercises();
+    public SessionEntity update(@PathVariable UUID id, @RequestBody RequestUpdateSessionPresenter requestUpdateSessionPresenter){
+        UUID idUser = requestUpdateSessionPresenter.getIdUser();
+        Instant date = requestUpdateSessionPresenter.getDate();
+        String name = requestUpdateSessionPresenter.getName();
+        List<ExercisePresenter> exercisePresenters = requestUpdateSessionPresenter.getExercises();
         List <ExerciseEntity> exercises = ExerciseEntity.fromPresenter(exercisePresenters);
-        SessionEntity requestSession = new SessionEntity(id, exercises, idUsers, date, name);
+        SessionEntity requestSession = new SessionEntity(id, exercises, idUser, date, name);
         return sessionRepository.save(requestSession);
 
     }

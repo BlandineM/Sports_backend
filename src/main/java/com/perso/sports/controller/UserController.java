@@ -1,6 +1,7 @@
 package com.perso.sports.controller;
 
 import com.perso.sports.entity.UserEntity;
+import com.perso.sports.entity.presenter.UserPresenter;
 import com.perso.sports.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     @ResponseBody
     public List<UserEntity> index(){
                 return userRepository.findAll();
