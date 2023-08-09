@@ -8,6 +8,8 @@ public class ExercisePresenter {
 
     private int repetitions;
 
+    private int numberSerie;
+
     private int weight;
 
     private MovementPresenter movements;
@@ -15,11 +17,20 @@ public class ExercisePresenter {
 
     public ExercisePresenter(){}
 
-    public ExercisePresenter(UUID id, int repetitions, int weight, MovementPresenter movement) {
+    public ExercisePresenter(UUID id, int repetitions, int numberSerie, int weight, MovementPresenter movements) {
         this.id = id;
         this.repetitions = repetitions;
+        this.numberSerie = numberSerie;
         this.weight = weight;
-        this.movements = movement;
+        this.movements = movements;
+    }
+
+    public int getNumberSerie() {
+        return numberSerie;
+    }
+
+    public void setNumberSerie(int numberSerie) {
+        this.numberSerie = numberSerie;
     }
 
     public UUID getId() {

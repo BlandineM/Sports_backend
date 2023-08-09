@@ -11,6 +11,8 @@ public class ExerciseEntity {
 
     private int repetitions;
 
+    private int numberSerie;
+
     private int weight;
 
     private UUID idMovement;
@@ -20,10 +22,19 @@ public class ExerciseEntity {
     }
 
 
-    public ExerciseEntity(int repetitions, int weight, UUID idMovement) {
+    public ExerciseEntity(int repetitions, int numberSerie, int weight, UUID idMovement) {
         this.repetitions = repetitions;
+        this.numberSerie = numberSerie;
         this.weight = weight;
         this.idMovement = idMovement;
+    }
+
+    public int getNumberSerie() {
+        return numberSerie;
+    }
+
+    public void setNumberSerie(int numberSerie) {
+        this.numberSerie = numberSerie;
     }
 
     public int getRepetitions() {
@@ -58,8 +69,9 @@ public class ExerciseEntity {
 
     public  static ExerciseEntity fromPresenter(ExercisePresenter exercisePresenter) {
         int repetitions = exercisePresenter.getRepetitions();
+        int numberSerie = exercisePresenter.getNumberSerie();
         int weight = exercisePresenter.getWeight();
         UUID idMovements = exercisePresenter.getMovement().getId();
-        return  new ExerciseEntity( repetitions, weight, idMovements);
+        return  new ExerciseEntity( repetitions, numberSerie, weight, idMovements);
     }
 }
