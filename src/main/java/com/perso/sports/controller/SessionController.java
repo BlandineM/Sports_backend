@@ -25,14 +25,14 @@ public class SessionController {
     }
 
     @PostMapping("/session")
-    public SessionEntity create(@RequestBody RequestAddSessionPresenter requestAddSessionsPresenter){
-        UUID idUsers = requestAddSessionsPresenter.getIdUsers();
-        Instant date = requestAddSessionsPresenter.getDate();
-        String name = requestAddSessionsPresenter.getName();
-        List<ExercisePresenter> exercisePresenters = requestAddSessionsPresenter.getExercises();
+    public SessionEntity create(@RequestBody RequestAddSessionPresenter requestAddSessionPresenter){
+        UUID idUsers = requestAddSessionPresenter.getIdUsers();
+        Instant date = requestAddSessionPresenter.getDate();
+        String name = requestAddSessionPresenter.getName();
+        List<ExercisePresenter> exercisePresenters = requestAddSessionPresenter.getExercises();
         List <ExerciseEntity> exercises = ExerciseEntity.fromPresenter(exercisePresenters);
-        SessionEntity requestSessions = new SessionEntity( null, exercises, idUsers, date,  name);
-        return sessionRepository.save(requestSessions);
+        SessionEntity requestSession = new SessionEntity( null, exercises, idUsers, date,  name);
+        return sessionRepository.save(requestSession);
     }
 
     @PutMapping("/session/{id}")
@@ -42,8 +42,8 @@ public class SessionController {
         String name = requestUpdateSessionsPresenter.getName();
         List<ExercisePresenter> exercisePresenters = requestUpdateSessionsPresenter.getExercises();
         List <ExerciseEntity> exercises = ExerciseEntity.fromPresenter(exercisePresenters);
-        SessionEntity requestSessions = new SessionEntity(id, exercises, idUsers, date, name);
-        return sessionRepository.save(requestSessions);
+        SessionEntity requestSession = new SessionEntity(id, exercises, idUsers, date, name);
+        return sessionRepository.save(requestSession);
 
     }
 
