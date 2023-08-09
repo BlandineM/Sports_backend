@@ -59,7 +59,7 @@ public class ExerciseEntity {
     public  static ExerciseEntity fromPresenter(ExercisePresenter exercisePresenter) {
         int repetitions = exercisePresenter.getRepetitions();
         int weight = exercisePresenter.getWeight();
-        UUID idMovements = exercisePresenter.getMovements().getId();
+        UUID idMovements = exercisePresenter.getMovement().getId();
         return  new ExerciseEntity( repetitions, weight, idMovements);
     }
 }
