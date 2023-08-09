@@ -16,23 +16,23 @@ public class UserRepositoryTest {
     @Autowired
     UserRepository userRepository;
 
-    UserEntity toto;
+    UserEntity Alfred;
 
     @BeforeEach
     public void setUp() {
         userRepository.deleteAll();
-        toto = userRepository.save(UserEntity.create("Toto"));
+        Alfred = userRepository.save(UserEntity.create("Alfred"));
     }
 
     @Test
     public void setIdOnSave(){
-        UserEntity jules = userRepository.save(UserEntity.create("Jules"));
+        UserEntity jules = userRepository.save(UserEntity.create("Bruce"));
         assertThat(jules.getId()).isNotNull();
     }
 
     @Test
     public void findById(){
-        Optional<UserEntity> result = userRepository.findById(toto.getId());
+        Optional<UserEntity> result = userRepository.findById(Alfred.getId());
         assertThat(result. isPresent()).isTrue();
         assertThat(result.get()).isNotNull();
     }
