@@ -1,6 +1,6 @@
 package com.perso.sports.entity;
 
-public class RequestAddMovementsPresenter {
+public class RequestAddMovementPresenter {
     private String name;
     private String shortName;
     private String description;

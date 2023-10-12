@@ -1,26 +1,27 @@
 package com.perso.sports.entity;
 
-import java.time.Instant;
+import com.perso.sports.entity.presenter.ExercisePresenter;
 
-public class RequestUpdateSessionsPresenter {
-    private Integer idMovements;
-    private Integer idSessions;
-    private Integer idUsers;
+import java.time.Instant;
+import java.util.List;
+import java.util.UUID;
+
+public class RequestAddSessionPresenter {
+
+    private UUID idUser;
     private Instant date;
     private int repetitions;
     private int weight;
     private String name;
 
-    public Integer getIdSessions() {
-        return idSessions;
+    private List<ExercisePresenter> exercises;
+
+    public List<ExercisePresenter> getExercises() {
+        return exercises;
     }
 
-    public Integer getIdMovements() {
-        return idMovements;
-    }
-
-    public Integer getIdUsers() {
-        return idUsers;
+    public UUID getIdUser() {
+        return idUser;
     }
 
     public Instant getDate() {
